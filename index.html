@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Gamepad Event Dispatcher</title>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+    <style>
+        body {
+            font-family: 'Arial Narrow', Arial, sans-serif;
+            font-size: 2rem;
+            text-align: center;
+            background-color: lightgray;
+            display: flex;
+            justify-content: center;
+        }
+
+        .fancy-text {
+            font-size: 3rem;
+            transition: 0.8s;
+            opacity: 1;
+            transform-origin: center;
+            animation: fade-out 0.5s linear forwards;
+        }
+
+        @keyframes fade-out {
+            0% {
+                opacity: 1;
+            }
+
+            20% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>Gamepad Event Dispatcher</h1>
+        <h2>Event:</h2>
+        <div id="output"></div>
+    </div>
+</body>
+
+</html>
+
+<script type="module">
+    import { gamepadEvents, gamepadEventsConfig } from './gamepad-event-dispatcher.js';
+
+    const output = document.getElementById("output");
+    const gamepadInputs = gamepadEventsConfig.getGamepadInputs();
+
+    gamepadInputs.forEach(input => {
+        gamepadEvents.addEventListener(input, e => fancyTextDisplay(output, input, e.detail.value));
+    });
+
+    function fancyTextDisplay(element, text, strength) {
+        const scaleAmount = strength > 0.2 ? parseFloat(strength) : 0.2;
+        const contentDiv = document.createElement("div");
+
+        element.prepend(contentDiv);
+        contentDiv.innerText = text;
+        contentDiv.classList.add("fancy-text");
+        contentDiv.style.transform = `scale(${scaleAmount})`;
+
+        setTimeout(() => {
+            element.removeChild(contentDiv);
+        }, 500);
+    }
+</script>
