@@ -1,0 +1,28 @@
+{
+  "name": "gamepad-event-dispatcher",
+  "version": "0.0.1",
+  "description": "A lightweight JavaScript module that provides a simple event-based interface to the browser gamepad API.",
+  "main": "src/gamepad-event-dispatcher.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rex-tr909/gamepad-event-dispatcher.git"
+  },
+  "keywords": [
+    "Gamepad",
+    "API",
+    "Xbox",
+    "Playstation",
+    "DualShock",
+    "Controller"
+  ],
+  "author": "Rex Tr-909",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Rex-tr909/gamepad-event-dispatcher/issues"
+  },
+  "homepage": "https://github.com/Rex-tr909/gamepad-event-dispatcher#readme"
+}
